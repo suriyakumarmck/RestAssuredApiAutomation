@@ -1,0 +1,36 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PostCommentAPI-Testsuite" verbose="1">
+    <listeners>
+        <listener class-name="FrameworkCore.FrameworkListener"/>
+    </listeners>
+    <test name="PostCommentTestcases">
+        <parameter name="userName" value="Delphine"/>
+        <parameter name="invalidUserName" value="InvalidUser"/>
+        <parameter name="invalidUserId" value="1000100"/>
+        <parameter name="invalidPostId" value="1000101"/>
+        <parameter name="postTitle" value="Post title"/>
+        <parameter name="postBody" value="This is post body"/>
+        <parameter name="updatedPostTitle" value="Updated post title"/>
+        <parameter name="fakePostId" value="1"/>
+        <classes>
+            <class name="tests.UserPostCommentsPositiveTest">
+                <methods>
+                    <include name="validateGetAllUsers"/>
+                    <include name="validateGetUser"/>
+                    <include name="validateGetPostsByUserId"/>
+                    <include name="validatePostCommentsEmail"/>
+                    <include name="validateCreatePost"/>
+                    <include name="validateUpdatePost"/>
+                    <include name="validateDeletePost"/>
+                </methods>
+            </class>
+            <class name="tests.UserPostCommentsNegativeTest">
+                <methods>
+                    <include name="validateGetUserWithInvalidNameReturnsAnEmptyArray"/>
+                    <include name="validateGetPostsByInvalidUserIdReturnsAnEmptyArray"/>
+                    <include name="validateGetPostCommentsByInvalidPostIdReturnsAnEmptyArray"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

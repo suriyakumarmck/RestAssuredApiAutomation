@@ -15,10 +15,13 @@ public class Environment {
     public static String usersEndpoint;
     private Logger log = LoggerHook.log;
 
+    /**
+     * Constructor gets environment details from Environment JSON
+     */
     public Environment() {
         log.info("Setting up the test environment");
         String testEnvironment = System.getProperty("ENV", "staging");
-        String commonConfigKey = "FrameworkCore";
+        String commonConfigKey = "common";
         JSONObject envConfig = new JSONObject();
         JSONObject commonConfig = new JSONObject();
         try {

@@ -2,9 +2,11 @@ package FrameworkCore;
 
 import static io.restassured.RestAssured.given;
 
-public class PreTestCommon {
-
-    public static boolean isAppBackendUp() {
+public class APIServerChecker {
+    /**
+     * Function used to verify if Backend API is UP
+     */
+    public static boolean isAPIServerUp() {
         return given()
                 .spec(RestAssureInitializer.requestSpec)
                 .get().statusCode() == 200;

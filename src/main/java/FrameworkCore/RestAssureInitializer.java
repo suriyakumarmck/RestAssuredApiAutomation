@@ -15,6 +15,9 @@ public class RestAssureInitializer {
     public static ResponseSpecification successResponseSpec;
     private Logger log = LoggerHook.log;
 
+    /**
+     * Function That Builds and Initializing request and response specifications
+     */
     public RestAssureInitializer() {
         log.info("Initializing request and response specifications");
         RestAssureInitializer.requestSpec = new RequestSpecBuilder()

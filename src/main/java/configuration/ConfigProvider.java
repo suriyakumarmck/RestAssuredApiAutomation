@@ -12,6 +12,10 @@ public class ConfigProvider {
 
     private static Logger log = LoggerHook.log;
 
+    /**
+     * Function used to get JSOn Object value from Environment details JSON
+     * @param configKey: holds the key of Object to be fetched from JSON Object
+     */
     public static Object getConfigObject(String configKey) throws IOException, ParseException {
         String projectDir = System.getProperty("user.dir");
         String pathSep = File.separator;
